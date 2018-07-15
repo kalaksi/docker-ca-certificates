@@ -19,7 +19,7 @@ ENTRYPOINT set -eu; \
     CERT_VARS=$(env | cut -d '=' -f 1 | egrep '^CA_CERT_[0-9]+$'); \
     for cert_var in $CERT_VARS; do \
         # Indirect variable expansion, same as ${!cert_var} in bash
-        cert_contents=$(eval echo \$$cert_var); \
+        cert_contents="$(eval echo \"\$$cert_var\")"; \
         # Check if e.g. CA_CERT_0_NAME variable exists and if not, use "CA_CERT_0" as the filename
         eval "cert_filename=\${${cert_var}_NAME:-$cert_var}"; \
         filename="/usr/local/share/ca-certificates/${cert_filename}.crt"; \
