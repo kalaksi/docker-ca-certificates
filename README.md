@@ -6,8 +6,7 @@
 Basically, this container installs ```ca-certificates``` package and runs ```update-ca-certificates```.  
 It separates the management of OS's CA certificates and allows you to add your own certificates too.  
   
-For example, if you need to use LDAPS or connect using HTTPS inside the container, you'll need to have the certificates available for verification,
-but it's not sensible to do the management in each container separately.  
+For example, if you need to use LDAPS or connect using HTTPS inside the container, you'll need to have the certificates available for verification, but it's not sensible to do the management in each container separately.  
   
 Also, see [Design Goals](#design-goals) further down.
 
@@ -15,12 +14,15 @@ Also, see [Design Goals](#design-goals) further down.
 See the ```Tags``` tab on Docker Hub for specifics. Basically you have:
 - The default ```latest``` tag that always has the latest changes.
 - Minor versioned tags (follow Semantic Versioning), e.g. ```1.0``` which would follow branch ```1.0.x``` on GitHub.
-- Debian is the default base system, but a separate ```1.0-alpine``` tag is provided for CA certificates from Alpine Linux. Both systems produce the same kind of structure for /etc/ssl/certs that can be used at least with Debian and Alpine.
+- Debian is the default base system, but a separate ```1.0-alpine``` tag is provided for CA certificates from Alpine Linux. Both systems produce the same kind of structure for /etc/ssl/certs that can be used at least with Debian and Alpine. (TBD)
 
 ### Using this container
 
 Mount a volume to ```/etc/ssl/certs```. It will be populated with the certificates and symlinks after running the container.  
 Mount the same volume to another container and it will then have usable CA certificates (can be mounted read-only).
+
+Use environment variables ```CA_CERT_0```, ```CA_CERT_1```, ... to add your own certificates, or mount additional certs to ```/additional_certs```, or do both.  
+You can set the filename for e.g. ```CA_CERT_0``` by using environment variable ```CA_CERT_0_NAME```. Naming certs like this also helps to identify them later on.  
   
 As usual, check the ```docker-compose.yml``` file to see specifics on how to run this container.
 
