@@ -7,7 +7,16 @@ services:
       - ALL
     volumes:
       - cert-store:/etc/ssl/certs
+    # environment:
+    #   CA_CERT_0_NAME: example-ca-cert
+    #   CA_CERT_0: |
+    #     -----BEGIN CERTIFICATE-----
+    #     ...
+    #     -----END CERTIFICATE-----
+    labels:
+      # For Rancher, remove if you want:
+      io.rancher.container.start_once: 'true'
 
-# TODO: add an example of service using this volume
+# TODO: add an example of a service using this volume
 volumes:
   cert-store: {}
