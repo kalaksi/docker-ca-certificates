@@ -1,0 +1,13 @@
+version: 2
+services:
+  ca-certificates:
+    image: kalaksi/ca-certificates
+    container_name: ca-certificates
+    cap_drop:
+      - ALL
+    volumes:
+      - cert-store:/etc/ssl/certs
+
+# TODO: add an example of service using this volume
+volumes:
+  cert-store: {}
