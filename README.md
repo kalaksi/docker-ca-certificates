@@ -3,10 +3,10 @@
 - [GitHub repository](https://github.com/kalaksi/docker-ca-certificates)
 
 ### What is this container for?
-Basically, this container installs ```ca-certificates``` package and runs ```update-ca-certificates```.  
-It separates the management of OS's CA certificates and allows you to add your own certificates too.  
+Basically, this container installs Debian's ```ca-certificates``` package and runs ```update-ca-certificates``` while allowing you to add your own certificates to the mix, too.
+This way, you can configure and generate the CA certificate structure in a separate container. The result is a certificate directory that can be used inside other containers.
   
-For example, if you need to use LDAPS or connect using HTTPS inside the container, you'll need to have the certificates available for verification, but it's not sensible to do the management in each container separately.  
+This is necessary if you use, for example, LDAPS or HTTPS connections inside a container and therefore need to have the CA certificates available for certificate verification. It is not sensible to install the necessary packages or certificates for each such container separately.
   
 Also, see [Design Goals](#design-goals) further down.
 
