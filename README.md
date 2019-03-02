@@ -10,7 +10,7 @@ This is necessary if you use, for example, LDAPS or HTTPS connections inside a c
 
 |Requirement              |Status|Details|
 |-------------------------|:----:|-------|
-|Don't run as root        |✅    | Never run as root unless necessary.|
+|Don't run as root        |❌    | ```update-ca-certificates``` is naturally run as root. No effort has been made to run it as non-root because this container does not contain any foreign code.|
 |Official base image      |✅    | |
 |Drop extra CAPabilities  |✅    | See ```docker-compose.yml``` |
 |No default passwords     |✅    | No static default passwords. That would make the container insecure by default.|
@@ -35,6 +35,7 @@ As usual, check the ```docker-compose.yml``` file to see specifics on how to run
 
 ## Development
 ### TODO
+- Run as non-root?
 - Debian is the default base system, but a separate ```1.0-alpine``` tag should be provided for CA certificates from Alpine Linux. Both systems produce the same kind of structure for /etc/ssl/certs that can be used at least with Debian and Alpine.
 
 ### Contributing
