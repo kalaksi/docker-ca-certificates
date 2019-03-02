@@ -4,9 +4,7 @@ MAINTAINER Kalaksi <kalaksi@users.noreply.github.com>
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
       ca-certificates && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN rm -r /etc/ssl/certs/* && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/certs/* && \
     mkdir /additional_certs
 
 VOLUME /etc/ssl/certs /additional_certs
