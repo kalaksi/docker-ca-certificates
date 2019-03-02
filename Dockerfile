@@ -26,12 +26,12 @@ ENTRYPOINT set -eu; \
         filename="/usr/local/share/ca-certificates/${cert_filename}.crt"; \
         echo "$cert_contents" > "$filename"; \
     done; \
-    # Clean up old files. Everything should be managed by this container.
+    # Clean up old certs. Everything should be managed by this container.
     rm -rf /etc/ssl/certs/*; \
     update-ca-certificates; \
     # To make things easier, we replace the symlinks under /etc/ssl/certs that point to /usr/...
     # with actual copies. This way we only need to mount /etc/ssl/certs on other containers and
-    # it will a be self-contained system.
+    # it will be a self-contained system.
     TRUSTED_CERTS=$(find /etc/ssl/certs/ -type l -exec readlink -f {} \; | sort | uniq); \
     for cert_source in $TRUSTED_CERTS; do \
         new_name=$(basename $cert_source | sed 's/\.crt/\.pem/'); \
