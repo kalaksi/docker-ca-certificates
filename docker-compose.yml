@@ -1,8 +1,8 @@
-version: 2
+version: '2'
 services:
   ca-certificates:
     image: kalaksi/ca-certificates
-    container_name: ca-certificates
+    restart: 'no'
     cap_drop:
       - ALL
     volumes:
