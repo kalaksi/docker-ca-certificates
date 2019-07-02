@@ -10,11 +10,11 @@ This is necessary if you use, for example, LDAPS or HTTPS connections inside a c
 
 |Requirement              |Status|Details|
 |-------------------------|:----:|-------|
-|Don't run as root        |❌    | ```update-ca-certificates``` is naturally run as root. No effort has been made to run it as non-root because this container does not contain any foreign code.|
+|Don't run as root        |❌    | ```update-ca-certificates``` is naturally run as root. No effort has been made to run it as non-root (that would be ideal, though). This container contains only core components of the OS.|
 |Official base image      |✅    | |
 |Drop extra CAPabilities  |✅    | See ```docker-compose.yml``` |
-|No default passwords     |—      | (Not applicable) No static default passwords. That would make the container insecure by default. |
-|Support secrets-files    |—     | (Not applicable) Support providing e.g. passwords via files instead of environment variables. |
+|No default passwords     |✅    | No static default passwords. That would make the container insecure by default. |
+|Support secrets-files    |✅    | Support providing e.g. passwords via files instead of environment variables. |
 |Handle signals properly  |✅    | |
 |Simple Dockerfile        |✅    | Keep everything in the Dockerfile if reasonable.|
 |Versioned tags           |✅    | Offer versioned tags for stability.|
