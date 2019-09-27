@@ -16,7 +16,7 @@ This is necessary if you use, for example, LDAPS or HTTPS connections inside a c
 |No default passwords     |✅    | No static default passwords. That would make the container insecure by default. |
 |Support secrets-files    |✅    | Support providing e.g. passwords via files instead of environment variables. |
 |Handle signals properly  |✅    | |
-|Simple Dockerfile        |✅    | Keep everything in the Dockerfile if reasonable.|
+|Simple Dockerfile        |✅    | No overextending the container's responsibilities. And keep everything in the Dockerfile if reasonable. |
 |Versioned tags           |✅    | Offer versioned tags for stability.|
 
 ## Supported tags

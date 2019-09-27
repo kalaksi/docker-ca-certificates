@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:9.11-slim
 MAINTAINER Kalaksi <kalaksi@users.noreply.github.com>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
