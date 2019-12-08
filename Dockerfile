@@ -7,7 +7,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-ins
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /etc/ssl/certs/* && \
     mkdir /additional_certs
 
-VOLUME /etc/ssl/certs /additional_certs
+VOLUME /etc/ssl/certs
 
 # Use environment variables CA_CERT_0, CA_CERT_1, ... to add your own certs,
 # or mount additional certs to /additional_certs, or do both.
