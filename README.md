@@ -1,5 +1,5 @@
 ## Resources
-- [Docker Hub repository](https://registry.hub.docker.com/u/kalaksi/ca-certificates/)
+- [Docker Hub repository](https://hub.docker.com/r/kalaksi/ca-certificates/)
 - [GitHub repository](https://github.com/kalaksi/docker-ca-certificates)
 
 ## What is this container for?
