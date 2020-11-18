@@ -18,7 +18,7 @@ VOLUME /etc/ssl/certs
 # Naming certs like this also helps to identify them later on.
 ENTRYPOINT set -eu; \
     cp -a /additional_certs/. /usr/local/share/ca-certificates/; \
-    CERT_VARS=$(env | cut -d '=' -f 1 | egrep '^CA_CERT_[0-9]+$'); \
+    CERT_VARS=$(env | cut -d '=' -f 1 | (egrep '^CA_CERT_[0-9]+$' || true)); \
     for cert_var in $CERT_VARS; do \
         # Indirect variable expansion, same as ${!cert_var} in bash
         cert_contents="$(eval echo \"\$$cert_var\")"; \
