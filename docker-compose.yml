@@ -13,9 +13,6 @@ services:
     #     -----BEGIN CERTIFICATE-----
     #     ...
     #     -----END CERTIFICATE-----
-    labels:
-      # For Rancher, remove if you want:
-      io.rancher.container.start_once: 'true'
 
 # TODO: add an example of a service using this volume
 volumes:
