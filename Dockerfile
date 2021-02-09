@@ -1,7 +1,7 @@
 # Copyright (c) 2018 kalaksi@users.noreply.github.com.
 # This work is licensed under the terms of the MIT license. For a copy, see <https://opensource.org/licenses/MIT>.
 
-FROM debian:10.7-slim
+FROM debian:10.8-slim
 LABEL maintainer="kalaksi@users.noreply.github.com"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
@@ -33,8 +33,7 @@ ENTRYPOINT set -eu; \
     # To make things easier, we replace the symlinks under /etc/ssl/certs that point to /usr/...
     # with actual copies. This way we only need to mount /etc/ssl/certs on other containers and
     # it will be a self-contained system.
-    TRUSTED_CERTS=$(find /etc/ssl/certs/ -type l -exec readlink -f {} \; | sort | uniq); \
-    for cert_source in $TRUSTED_CERTS; do \
-        new_name=$(basename $cert_source | sed 's/\.crt/\.pem/'); \
-        cp --remove-destination -v "$cert_source" "/etc/ssl/certs/$new_name"; \
-    done
+    find /etc/ssl/certs/ -type l -exec readlink -z -f {} \; | sort -z | uniq  -z | xargs -0 -r -n1 sh -c ' \
+        new_name=$(basename "$0" | sed '\''s/\.crt$/\.pem/'\''); \
+        cp --remove-destination -v "$0" "/etc/ssl/certs/$new_name"; \
+        '
