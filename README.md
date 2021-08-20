@@ -37,7 +37,6 @@ As usual, check the ```docker-compose.yml``` file to see specifics on how to run
 ## Development
 ### TODO
 - Run as non-root?
-- Debian is the default base system, but a separate ```1.0-alpine``` tag should be provided for CA certificates from Alpine Linux. Both systems produce the same kind of structure for /etc/ssl/certs that can be used at least with Debian and Alpine.
 
 ### Contributing
 See the repository on <https://github.com/kalaksi/docker-ca-certificates>.
