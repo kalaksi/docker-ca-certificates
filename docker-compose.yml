@@ -1,7 +1,9 @@
 version: '2'
 services:
   ca-certificates:
-    image: kalaksi/ca-certificates
+    image: registry.gitlab.com/kalaksi-containers/ca-certificates
+    # Getting the image from GitLab is recommended but Docker Hub works too:
+    # image: docker.io/kalaksi/ca-certificates
     restart: 'no'
     cap_drop:
       - ALL
@@ -14,6 +16,5 @@ services:
     #     ...
     #     -----END CERTIFICATE-----
 
-# TODO: add an example of a service using this volume
 volumes:
   cert-store: {}

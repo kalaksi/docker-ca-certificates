@@ -1,5 +1,6 @@
 ## Resources
-- [Docker Hub repository](https://hub.docker.com/r/kalaksi/ca-certificates/)
+- [GitLab repository](https://gitlab.com/kalaksi-containers/ca-certificates/) (`registry.gitlab.com/kalaksi-containers/ca-certificates`)
+- [Docker Hub repository](https://hub.docker.com/r/kalaksi/ca-certificates/) (`docker.io/kalaksi/ca-certificates`)
 - [GitHub repository](https://github.com/kalaksi/docker-ca-certificates)
 
 ## What is this container for?
@@ -8,16 +9,17 @@ This way, you can configure and generate the CA certificate structure in a separ
   
 This is necessary if you use, for example, LDAPS or HTTPS connections inside a container and therefore need to have the CA certificates available for certificate verification. It is not sensible to install the necessary packages or certificates for each such container separately.
 
-|Requirement              |Status|Details|
-|-------------------------|:----:|-------|
-|Don't run as root        |❌    | ```update-ca-certificates``` is naturally run as root. No effort has been made to run it as non-root (that would be ideal, though). This container contains only core components of the OS.|
-|Official base image      |✅    | |
-|Drop extra CAPabilities  |✅    | See ```docker-compose.yml``` |
-|No default passwords     |✅    | No static default passwords. That would make the container insecure by default. |
-|Support secrets-files    |✅    | Support providing e.g. passwords via files instead of environment variables. |
-|Handle signals properly  |✅    | |
-|Simple Dockerfile        |✅    | No overextending the container's responsibilities. And keep everything in the Dockerfile if reasonable. |
-|Versioned tags           |✅    | Offer versioned tags for stability.|
+|Requirement                   |Status|Details|
+|------------------------------|:----:|-------|
+|Don't run container as root   |❌    | ```update-ca-certificates``` is naturally run as root. No effort has been made to run it as non-root (that would be ideal, though). This container contains only core components of the OS.|
+|Transparent build process     |✅    | For verifying that the container matches the code. See GitLab CI. |
+|Official base image           |✅    | |
+|Drop extra CAPabilities       |✅    | See ```docker-compose.yml``` |
+|No default passwords          |✅    | No static default passwords. That would make the container insecure by default. |
+|Support secrets-files         |✅    | Support providing e.g. passwords via files instead of environment variables. |
+|Handle signals properly       |✅    | |
+|Simple Dockerfile             |✅    | No overextending the container's responsibilities. And keep everything in the Dockerfile if reasonable. |
+|Versioned tags                |✅    | Offer versioned tags for stability.|
 
 ## Supported tags
 See the ```Tags``` tab on Docker Hub for specifics. Basically you have:
