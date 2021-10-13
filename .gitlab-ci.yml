@@ -19,7 +19,7 @@ build:
     # If not in master, use branch name with any ".x" suffixes removed.
     - |
       if [ "$CI_COMMIT_BRANCH" != "$CI_DEFAULT_BRANCH" ]; then
-        IMAGE_TAG=":$(echo "$CI_COMMIT_REF_SLUG" | sed 's/\.x$//')"
+        IMAGE_TAG=":$(echo "$CI_COMMIT_REF_NAME" | sed 's/\.x$//')"
       fi
     - docker build --pull -t "${CI_REGISTRY_IMAGE}${IMAGE_TAG}" .
     - docker push "${CI_REGISTRY_IMAGE}${IMAGE_TAG}"
@@ -31,7 +31,7 @@ distribute:
   script:
     - |
       if [ "$CI_COMMIT_BRANCH" != "$CI_DEFAULT_BRANCH" ]; then
-        IMAGE_TAG=":$(echo "$CI_COMMIT_REF_SLUG" | sed 's/\.x$//')"
+        IMAGE_TAG=":$(echo "$CI_COMMIT_REF_NAME" | sed 's/\.x$//')"
       fi
     - docker pull "${CI_REGISTRY_IMAGE}${IMAGE_TAG}"
     - docker tag "${CI_REGISTRY_IMAGE}${IMAGE_TAG}" "${EXT_REGISTRY_IMAGE}${IMAGE_TAG}"
