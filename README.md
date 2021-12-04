@@ -1,6 +1,6 @@
 ## Resources
-- [GitLab repository](https://gitlab.com/kalaksi-containers/ca-certificates/) (`registry.gitlab.com/kalaksi-containers/ca-certificates`)
-- [Docker Hub repository](https://hub.docker.com/r/kalaksi/ca-certificates/) (`docker.io/kalaksi/ca-certificates`)
+- [GitLab repository](https://gitlab.com/kalaksi-containers/ca-certificates/) (image: `registry.gitlab.com/kalaksi-containers/ca-certificates`)
+- [Docker Hub repository](https://hub.docker.com/r/kalaksi/ca-certificates/) (image: `docker.io/kalaksi/ca-certificates`)
 - [GitHub repository](https://github.com/kalaksi/docker-ca-certificates)
 
 ## What is this container for?

@@ -1,9 +1,9 @@
 version: '2'
 services:
   ca-certificates:
-    image: registry.gitlab.com/kalaksi-containers/ca-certificates
-    # Getting the image from GitLab is recommended but Docker Hub works too:
-    # image: docker.io/kalaksi/ca-certificates
+    image: docker.io/kalaksi/ca-certificates
+    # You can also use GitLab as an alternative to Docker Hub:
+    # image: registry.gitlab.com/kalaksi-containers/ca-certificates
     restart: 'no'
     cap_drop:
       - ALL
