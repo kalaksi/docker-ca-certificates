@@ -1,4 +1,3 @@
-version: '2'
 services:
   ca-certificates:
     image: docker.io/kalaksi/ca-certificates
